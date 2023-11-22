@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { useNavigate } from 'react-router-dom'
 
 interface Slide {
   $image?: string
@@ -13,13 +14,17 @@ interface Slide {
 
 export const MainThumbnail = () => {
   const [jsonData, setJsonData] = useState<VideoItem[]>([])
+  const navigate = useNavigate()
+  const handleClickItem = (id: string) => {
+    navigate(`/detail/${id}`)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch('/videos/popular.json')
       const json = await res.json()
       const items = json.items
-      const randomItems = getRandomItems(items, 5)
+      const randomItems = getRandomItems(items, 7)
       setJsonData(randomItems)
     }
 
@@ -46,6 +51,8 @@ export const MainThumbnail = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
     nextArrow: <CustomNext />,
     prevArrow: <CustomPrev />
   }
@@ -53,10 +60,12 @@ export const MainThumbnail = () => {
   return (
     <div>
       <Slider {...settings}>
-        {jsonData.map((item, index) => (
-          <Slide key={index}>
+        {jsonData.map((i, idx) => (
+          <Slide
+            key={idx}
+            onClick={() => handleClickItem(i.id)}>
             <img
-              src={item.snippet.thumbnails.standard.url}
+              src={i.snippet.thumbnails.standard.url}
               alt="Thumbnail"
             />
           </Slide>
@@ -105,6 +114,7 @@ const Next = styled.button`
 const Slide = styled.div`
   position: relative;
   height: 60vh;
+  cursor: pointer;
   img {
     position: absolute;
     top: 50%;

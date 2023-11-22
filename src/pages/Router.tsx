@@ -22,7 +22,7 @@ export const routes = [
     errorComponent: <ErrorComponent />,
     children: [
       generateRoute('/', <MainPage />),
-      generateRoute('/detail:id', <DetailPage />)
+      generateRoute('/detail/:id', <DetailPage />)
     ],
     errorElement: <ErrorComponent />
   }
