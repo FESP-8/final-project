@@ -1,4 +1,6 @@
 const commons = {
+  // review
+  // ft는 무슨 약자일까요?
   main: {
     bg_color: '#0A070B',
     ft_color_p: '#dd2d47',
@@ -21,6 +23,8 @@ const commons = {
   }
 }
 
+// review
+// darkModeColors, lightModeColors로 이름을 바꾸는게 어떨까요?
 const darkColors = {
   body: '#0A070B',
   fontColor: '#fff',
