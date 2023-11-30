@@ -1,5 +1,0 @@
-export * from './ErrorComponent'
-export * from './detail'
-export * from './main'
-export * from './common'
-export * from './icons'
