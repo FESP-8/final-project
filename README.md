@@ -5,7 +5,7 @@
 
 ## 📲 배포주소
 
-주소 : <a href="https://youtube-api-project-1ul441kvt-dotory0829.vercel.app/"> YouTube API </a></br>
+주소 : <a href="youtube-api-project-theta.vercel.app"> 배포 주소 </a></br>
 
 </br>
 </br>
